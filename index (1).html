@@ -1,553 +1,548 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgroSense IoT | Smart Agriculture</title>
-
+<title>OvaSync Health – PCOS & PCOD Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
-}
-
-body{
-  background:#07130d;
-  color:#fff;
-  min-height:100vh;
-}
-
-header{
-  padding:20px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #193b28;
-  background:#091b11;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#6cff9b;
-}
-
-.logo span{
-  color:white;
-}
-
-.status{
-  padding:8px 15px;
-  border-radius:20px;
-  background:#103a20;
-  color:#6cff9b;
-  font-size:13px;
-}
-
-.hero{
-  padding:45px 6% 25px;
-  display:flex;
-  justify-content:space-between;
-  gap:30px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:48px;
-  line-height:1.05;
-}
-
-.hero h1 span{
-  color:#6cff9b;
-}
-
-.hero p{
-  margin-top:15px;
-  color:#9eb5a5;
-  max-width:650px;
-  line-height:1.7;
-}
-
-.hero-box{
-  background:linear-gradient(145deg,#123d24,#0b2415);
-  border:1px solid #28683e;
-  border-radius:25px;
-  padding:25px;
-  min-width:240px;
-  text-align:center;
-}
-
-.hero-box .plant{
-  font-size:70px;
-}
-
-.container{
-  padding:20px 6% 50px;
-}
-
-.section-title{
-  margin:25px 0 15px;
-  color:#b9cdbf;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.card{
-  background:#0c2115;
-  border:1px solid #1c4930;
-  border-radius:18px;
-  padding:22px;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#6cff9b;
-}
-
-.icon{
-  font-size:30px;
-}
-
-.label{
-  color:#8da496;
-  margin-top:15px;
-  font-size:14px;
-}
-
-.value{
-  font-size:32px;
-  font-weight:bold;
-  margin-top:6px;
-}
-
-.unit{
-  font-size:14px;
-  color:#7fa88b;
-}
-
-.dashboard{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:20px;
-  margin-top:20px;
-}
-
-.panel{
-  background:#0c2115;
-  border:1px solid #1c4930;
-  border-radius:20px;
-  padding:25px;
-}
-
-.chart{
-  height:210px;
-  display:flex;
-  align-items:end;
-  gap:10px;
-  padding:20px 5px 5px;
-}
-
-.bar{
-  flex:1;
-  background:linear-gradient(to top,#3be477,#b2ffca);
-  border-radius:8px 8px 2px 2px;
-  animation:pulse 2s infinite alternate;
-}
-
-@keyframes pulse{
-  from{opacity:.65}
-  to{opacity:1}
-}
-
-.irrigation{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:20px;
-  padding:20px;
-  border-radius:15px;
-  background:#102c1b;
-}
-
-.pump{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#163e25;
-  font-size:27px;
-}
-
-.on{
-  box-shadow:0 0 25px #35ef76;
-}
-
-button{
-  border:0;
-  padding:12px 20px;
-  border-radius:10px;
-  background:#65ef93;
-  color:#06200e;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  transform:scale(1.04);
-}
-
-.workflow{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-  margin-top:20px;
-}
-
-.step{
-  text-align:center;
-  padding:20px 10px;
-  border:1px solid #204e32;
-  border-radius:15px;
-  background:#0b1d12;
-}
-
-.step .emoji{
-  font-size:35px;
-  margin-bottom:10px;
-}
-
-.arrow{
-  color:#6cff9b;
-  font-size:25px;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#70877a;
-  border-top:1px solid #173824;
-}
-
-@media(max-width:900px){
-  .cards{
-    grid-template-columns:repeat(2,1fr);
+  :root {
+    --rose:    #C2607A;
+    --blush:   #F5D5DF;
+    --petal:   #FBEEF3;
+    --plum:    #6B2D4F;
+    --sage:    #7BAF8E;
+    --cream:   #FDF8F5;
+    --charcoal:#2C1F2E;
+    --mid:     #6E5B6E;
+    --white:   #FFFFFF;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
   }
 
-  .dashboard{
-    grid-template-columns:1fr;
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,248,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--blush);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--plum); font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--rose); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--mid);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-cta {
+    background: var(--rose); color: #fff;
+    border: none; border-radius: 50px;
+    padding: .55rem 1.4rem; font-size: .875rem;
+    font-weight: 600; cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--plum); transform: scale(1.03); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(145deg, #FDF2F6 0%, #F0E8F5 50%, #E8F5EE 100%);
+    display: flex; align-items: center;
+    padding: 100px 5vw 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -80px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(194,96,122,.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -60px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(123,175,142,.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center; position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--blush); color: var(--plum);
+    border-radius: 50px; padding: .3rem 1rem;
+    font-size: .8rem; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.18; color: var(--plum);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--rose); }
+  .hero p {
+    font-size: 1.05rem; color: var(--mid); max-width: 440px;
+    margin-bottom: 2rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--rose); color: #fff;
+    border: none; border-radius: 50px;
+    padding: .85rem 2rem; font-size: 1rem; font-weight: 600;
+    cursor: pointer; transition: background .2s, transform .15s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--plum); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--plum);
+    border: 2px solid var(--plum); border-radius: 50px;
+    padding: .85rem 2rem; font-size: 1rem; font-weight: 600;
+    cursor: pointer; transition: all .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { background: var(--plum); color: #fff; }
+
+  /* hero visual */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(107,45,79,.12);
+    max-width: 340px; width: 100%;
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--plum); margin-bottom: 1rem;
+  }
+  .symptom-chip {
+    display: inline-block;
+    background: var(--petal); color: var(--rose);
+    border-radius: 50px; padding: .3rem .85rem;
+    font-size: .8rem; font-weight: 500; margin: .25rem .2rem;
+  }
+  .hero-stat {
+    display: flex; align-items: center; gap: .7rem;
+    margin-top: 1.4rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--blush);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--rose);
+  }
+  .stat-label { font-size: .8rem; color: var(--mid); line-height: 1.3; }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 80px 5vw;
+    max-width: 1100px; margin: auto;
+  }
+  .section-eyebrow {
+    font-size: .8rem; font-weight: 600; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--rose);
+    margin-bottom: .6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    color: var(--plum); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--mid); font-size: 1rem; max-width: 560px; margin-bottom: 3rem; }
+
+  /* ── ABOUT ── */
+  .about-bg { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center;
+  }
+  .about-img-box {
+    background: linear-gradient(135deg, var(--blush), var(--petal));
+    border-radius: 24px; padding: 3rem 2rem;
+    text-align: center; position: relative;
+  }
+  .about-icon { font-size: 5rem; line-height: 1; }
+  .about-img-caption {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--plum); margin-top: 1rem;
+  }
+  .about-list { list-style: none; }
+  .about-list li {
+    display: flex; gap: .85rem; align-items: flex-start;
+    padding: .9rem 0; border-bottom: 1px solid var(--blush);
+  }
+  .about-list li:last-child { border-bottom: none; }
+  .about-icon-sm {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--petal); display: flex; align-items: center;
+    justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .about-list strong { display: block; font-weight: 600; color: var(--plum); }
+  .about-list span { font-size: .9rem; color: var(--mid); }
+
+  /* ── SYMPTOMS ── */
+  .symptoms-bg { background: var(--petal); }
+  .symptoms-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+  .sym-card {
+    background: #fff; border-radius: 16px;
+    padding: 1.6rem 1.4rem;
+    border: 1px solid var(--blush);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .sym-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(194,96,122,.12); }
+  .sym-icon { font-size: 2rem; margin-bottom: .7rem; }
+  .sym-card h4 { font-weight: 600; color: var(--plum); margin-bottom: .3rem; }
+  .sym-card p { font-size: .85rem; color: var(--mid); }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    background: linear-gradient(135deg, var(--plum) 0%, #8B3A6A 100%);
+    padding: 80px 5vw;
+  }
+  .form-inner { max-width: 860px; margin: auto; }
+  .form-header { text-align: center; margin-bottom: 3rem; }
+  .form-header .section-eyebrow { color: var(--blush); }
+  .form-header .section-title { color: #fff; }
+  .form-header p { color: rgba(255,255,255,.75); }
+
+  .form-card {
+    background: #fff; border-radius: 24px;
+    padding: 3rem; box-shadow: 0 30px 80px rgba(0,0,0,.2);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: .4rem; }
+  .field label {
+    font-size: .875rem; font-weight: 600; color: var(--plum);
+  }
+  .field label span { color: var(--rose); }
+  .field input,
+  .field select,
+  .field textarea {
+    border: 1.5px solid #E8DDE8;
+    border-radius: 10px; padding: .7rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem; color: var(--charcoal);
+    background: var(--cream);
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(194,96,122,.12);
+  }
+  .field textarea { resize: vertical; min-height: 100px; }
+
+  /* Checkboxes */
+  .checkbox-group { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .3rem; }
+  .checkbox-item {
+    display: flex; align-items: center; gap: .45rem;
+    cursor: pointer;
+  }
+  .checkbox-item input[type="checkbox"] {
+    width: 16px; height: 16px;
+    accent-color: var(--rose);
+    cursor: pointer;
+    border-radius: 4px; padding: 0;
+  }
+  .checkbox-item span { font-size: .875rem; color: var(--mid); }
+
+  /* Rating */
+  .rating-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .3rem; }
+  .rating-btn {
+    width: 38px; height: 38px; border-radius: 8px;
+    border: 1.5px solid #E8DDE8; background: var(--cream);
+    font-weight: 600; font-size: .875rem; cursor: pointer;
+    transition: all .15s; color: var(--mid);
+  }
+  .rating-btn:hover, .rating-btn.active {
+    background: var(--rose); border-color: var(--rose); color: #fff;
   }
 
-  .workflow{
-    grid-template-columns:1fr;
+  /* divider */
+  .form-divider {
+    grid-column: 1/-1;
+    border: none; border-top: 1.5px solid var(--blush);
+    margin: .8rem 0;
+  }
+  .form-divider-label {
+    grid-column: 1/-1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600; color: var(--plum);
+    margin-top: .4rem;
   }
 
-  .hero{
-    flex-direction:column;
-    align-items:flex-start;
+  .form-submit-row {
+    grid-column: 1/-1; display: flex;
+    justify-content: center; margin-top: 1rem;
   }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--rose), var(--plum));
+    color: #fff; border: none; border-radius: 50px;
+    padding: 1rem 3.5rem; font-size: 1rem; font-weight: 700;
+    cursor: pointer; transition: transform .15s, box-shadow .2s;
+    box-shadow: 0 8px 24px rgba(194,96,122,.35);
+    letter-spacing: .3px;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(194,96,122,.5); }
+  .btn-submit:disabled { opacity: .6; cursor: not-allowed; }
 
-  .hero h1{
-    font-size:38px;
+  /* Toast */
+  #toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--sage); color: #fff;
+    padding: 1rem 2rem; border-radius: 50px;
+    font-weight: 600; font-size: .95rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s; z-index: 999;
   }
-}
+  #toast.show { opacity: 1; }
+  #toast.error { background: #C25050; }
 
-@media(max-width:550px){
-  .cards{
-    grid-template-columns:1fr;
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,.6);
+    text-align: center; padding: 2rem 5vw;
+    font-size: .85rem;
   }
-}
+  footer a { color: var(--blush); text-decoration: none; }
+  footer strong { color: #fff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 760px) {
+    .hero-inner, .about-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-full { grid-column: 1; }
+    .form-submit-row { grid-column: 1; }
+    .form-divider { grid-column: 1; }
+    .form-divider-label { grid-column: 1; }
+    .nav-links { display: none; }
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">🌱 Agro<span>Sense</span> IoT</div>
-  <div class="status">● SYSTEM ONLINE</div>
-</header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ova<span>Sync</span> Health</div>
+  <ul class="nav-links">
+    <li><a href="#about">About PCOS</a></li>
+    <li><a href="#symptoms">Symptoms</a></li>
+    <li><a href="#consult">Consult</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('consult').scrollIntoView({behavior:'smooth'})">Book Consultation</button>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
-
-  <div>
-    <h1>SMART<br><span>AGRICULTURE</span></h1>
-
-    <p>
-      An intelligent IoT farming system that monitors field conditions
-      in real time and automatically manages irrigation.
-    </p>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-badge">🌸 PCOS & PCOD Care</span>
+      <h1>Your journey to <em>hormonal harmony</em> starts here</h1>
+      <p>Compassionate, science-backed care for women living with PCOS and PCOD. Share your symptoms — our specialists will guide you.</p>
+      <div class="hero-btns">
+        <a href="#consult" class="btn-primary">Start Consultation</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title">Common PCOS Symptoms</div>
+        <div>
+          <span class="symptom-chip">Irregular Periods</span>
+          <span class="symptom-chip">Hair Loss</span>
+          <span class="symptom-chip">Acne</span>
+          <span class="symptom-chip">Weight Gain</span>
+          <span class="symptom-chip">Mood Swings</span>
+          <span class="symptom-chip">Fatigue</span>
+          <span class="symptom-chip">Facial Hair</span>
+          <span class="symptom-chip">Fertility Issues</span>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">1 in 10</div>
+          <div class="stat-label">women of reproductive<br>age has PCOS globally</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="hero-box">
-    <div class="plant">🌾</div>
-    <h2>Field Status</h2>
-    <p id="fieldStatus">Healthy & Optimized</p>
-  </div>
-
 </section>
 
-<main class="container">
-
-<h2 class="section-title">LIVE FIELD MONITORING</h2>
-
-<div class="cards">
-
-  <div class="card">
-    <div class="icon">💧</div>
-    <div class="label">SOIL MOISTURE</div>
-    <div class="value" id="soil">68</div>
-    <span class="unit">%</span>
-  </div>
-
-  <div class="card">
-    <div class="icon">🌡️</div>
-    <div class="label">TEMPERATURE</div>
-    <div class="value" id="temp">28</div>
-    <span class="unit">°C</span>
-  </div>
-
-  <div class="card">
-    <div class="icon">💨</div>
-    <div class="label">HUMIDITY</div>
-    <div class="value" id="humidity">74</div>
-    <span class="unit">%</span>
-  </div>
-
-  <div class="card">
-    <div class="icon">🌿</div>
-    <div class="label">CROP HEALTH</div>
-    <div class="value">92</div>
-    <span class="unit">/100</span>
-  </div>
-
-</div>
-
-
-<div class="dashboard">
-
-  <div class="panel">
-
-    <h2>📊 Soil Moisture Analytics</h2>
-
-    <div class="chart">
-      <div class="bar" style="height:45%"></div>
-      <div class="bar" style="height:60%"></div>
-      <div class="bar" style="height:52%"></div>
-      <div class="bar" style="height:70%"></div>
-      <div class="bar" style="height:65%"></div>
-      <div class="bar" style="height:80%"></div>
-      <div class="bar" style="height:68%"></div>
-      <div class="bar" style="height:75%"></div>
-      <div class="bar" style="height:62%"></div>
-      <div class="bar" style="height:72%"></div>
-    </div>
-
-    <div class="irrigation">
-
-      <div>
-        <h3>Automatic Irrigation</h3>
-        <p id="pumpText">Pump is currently OFF</p>
+<!-- ABOUT -->
+<div class="about-bg" id="about">
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-img-box">
+        <div class="about-icon">🌺</div>
+        <div class="about-img-caption">Understanding Your Body</div>
       </div>
+      <div>
+        <div class="section-eyebrow">What is PCOS / PCOD?</div>
+        <h2 class="section-title">A hormonal condition that deserves real attention</h2>
+        <ul class="about-list">
+          <li>
+            <div class="about-icon-sm">💊</div>
+            <div>
+              <strong>PCOS – Polycystic Ovary Syndrome</strong>
+              <span>A hormonal disorder causing enlarged ovaries with small cysts. Affects periods, fertility, and metabolism.</span>
+            </div>
+          </li>
+          <li>
+            <div class="about-icon-sm">🔬</div>
+            <div>
+              <strong>PCOD – Polycystic Ovarian Disease</strong>
+              <span>The ovaries release immature or partially mature eggs which form cysts. More common and often milder than PCOS.</span>
+            </div>
+          </li>
+          <li>
+            <div class="about-icon-sm">✅</div>
+            <div>
+              <strong>It's manageable</strong>
+              <span>With the right lifestyle changes, medication, and support, most women manage symptoms effectively.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <div class="pump" id="pumpIcon">💧</div>
+<!-- SYMPTOMS -->
+<div class="symptoms-bg" id="symptoms">
+  <div class="section">
+    <div class="section-eyebrow">Recognise the Signs</div>
+    <h2 class="section-title">Common symptoms to watch for</h2>
+    <p class="section-sub">Every woman's experience is different. These are the most frequently reported symptoms.</p>
+    <div class="symptoms-grid">
+      <div class="sym-card"><div class="sym-icon">🗓️</div><h4>Irregular Periods</h4><p>Infrequent, irregular or prolonged menstrual cycles</p></div>
+      <div class="sym-card"><div class="sym-icon">⚖️</div><h4>Weight Changes</h4><p>Unexplained weight gain, especially around the abdomen</p></div>
+      <div class="sym-card"><div class="sym-icon">💇</div><h4>Hair Thinning</h4><p>Hair loss on the scalp or unwanted hair on face/body</p></div>
+      <div class="sym-card"><div class="sym-icon">🧴</div><h4>Acne & Oily Skin</h4><p>Hormonal acne on face, chest and back</p></div>
+      <div class="sym-card"><div class="sym-icon">😴</div><h4>Fatigue</h4><p>Constant tiredness even after adequate rest</p></div>
+      <div class="sym-card"><div class="sym-icon">😔</div><h4>Mood Swings</h4><p>Anxiety, depression, and emotional fluctuations</p></div>
+      <div class="sym-card"><div class="sym-icon">🤰</div><h4>Fertility Issues</h4><p>Difficulty conceiving due to irregular ovulation</p></div>
+      <div class="sym-card"><div class="sym-icon">🩸</div><h4>Pelvic Pain</h4><p>Pain or discomfort in the lower abdomen area</p></div>
+    </div>
+  </div>
+</div>
 
-      <button onclick="manualPump()">
-        CONTROL PUMP
-      </button>
-
+<!-- CONSULTATION FORM -->
+<section class="form-section" id="consult">
+  <div class="form-inner">
+    <div class="form-header">
+      <div class="section-eyebrow">Free Consultation</div>
+      <h2 class="section-title">Tell us about your health</h2>
+      <p>Fill in your details and describe your symptoms. Our team at OvaSync Health will reach out to you.</p>
     </div>
 
-  </div>
-
-
-  <div class="panel">
-
-    <h2>🤖 Smart Decision</h2>
-
-    <br>
-
-    <p style="color:#91a899">
-      AI-style field recommendation
-    </p>
-
-    <br>
-
-    <h2 id="recommendation">
-      Soil condition is optimal.
-    </h2>
-
-    <br>
-
-    <p style="color:#799382;line-height:1.6">
-      Sensors continuously monitor environmental
-      conditions and help reduce unnecessary
-      irrigation.
-    </p>
-
-  </div>
-
-</div>
-
-
-<h2 class="section-title">HOW THE SYSTEM WORKS</h2>
-
-<div class="workflow">
-
-  <div class="step">
-    <div class="emoji">🌱</div>
-    <b>FIELD</b>
-    <p>Crop & soil</p>
-  </div>
-
-  <div class="step">
-    <div class="emoji">💧</div>
-    <b>SENSORS</b>
-    <p>Collect data</p>
-  </div>
-
-  <div class="step">
-    <div class="emoji">📡</div>
-    <b>ESP8266</b>
-    <p>Process data</p>
-  </div>
-
-  <div class="step">
-    <div class="emoji">⚙️</div>
-    <b>RELAY</b>
-    <p>Control pump</p>
-  </div>
-
-  <div class="step">
-    <div class="emoji">📱</div>
-    <b>DASHBOARD</b>
-    <p>Monitor remotely</p>
-  </div>
-
-</div>
-
-</main>
-
-<footer>
-  🌱 SENSE → ANALYZE → AUTOMATE → GROW
-  <br><br>
-  Smart Agriculture Using IoT | AgroSense IoT
-</footer>
-
-
-<script>
-
-let soil = 68;
-let temperature = 28;
-let humidity = 74;
-let manual = false;
-
-function updateSystem(){
-
-  if(!manual){
-
-    soil += Math.floor(Math.random()*7)-3;
-
-    temperature += Math.floor(Math.random()*3)-1;
-
-    humidity += Math.floor(Math.random()*5)-2;
-
-    soil = Math.max(15,Math.min(90,soil));
-
-    temperature = Math.max(20,Math.min(38,temperature));
-
-    humidity = Math.max(40,Math.min(90,humidity));
-
-  }
-
-  document.getElementById("soil").innerText = soil;
-
-  document.getElementById("temp").innerText = temperature;
-
-  document.getElementById("humidity").innerText = humidity;
-
-
-  let pump =
-    document.getElementById("pumpIcon");
-
-  let pumpText =
-    document.getElementById("pumpText");
-
-  let recommendation =
-    document.getElementById("recommendation");
-
-  let fieldStatus =
-    document.getElementById("fieldStatus");
-
-
-  if(soil < 35){
-
-    pump.classList.add("on");
-
-    pumpText.innerText =
-      "Pump automatically ON 💧";
-
-    recommendation.innerText =
-      "Soil is dry — irrigation required.";
-
-    fieldStatus.innerText =
-      "Irrigation Required";
-
-  }else{
-
-    pump.classList.remove("on");
-
-    pumpText.innerText =
-      "Pump is currently OFF";
-
-    recommendation.innerText =
-      "Soil condition is optimal.";
-
-    fieldStatus.innerText =
-      "Healthy & Optimized";
-
-  }
-
-}
-
-function manualPump(){
-
-  manual = !manual;
-
-  let pump =
-    document.getElementById("pumpIcon");
-
-  let text =
-    document.getElementById("pumpText");
-
-  if(manual){
-
-    pump.classList.add("on");
-
-    text.innerText =
-      "Manual Pump Control: ON 💧";
-
-  }else{
-
-    text.innerText =
-      "Automatic Control Active";
-
-  }
-
-}
-
-updateSystem();
-
-setInterval(updateSystem,3000);
-
-</script>
-
-</body>
-</html>
+    <div class="form-card">
+      <div class="form-grid" id="consultForm">
+
+        <!-- Section: Patient Details -->
+        <div class="form-divider-label">👤 Patient Details</div>
+        <hr class="form-divider">
+
+        <div class="field">
+          <label>Full Name <span>*</span></label>
+          <input type="text" id="f_name" placeholder="Your full name" required>
+        </div>
+        <div class="field">
+          <label>Age <span>*</span></label>
+          <input type="number" id="f_age" placeholder="e.g. 24" min="10" max="60" required>
+        </div>
+        <div class="field">
+          <label>Email Address <span>*</span></label>
+          <input type="email" id="f_email" placeholder="your@email.com" required>
+        </div>
+        <div class="field">
+          <label>Phone Number <span>*</span></label>
+          <input type="tel" id="f_phone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="field">
+          <label>City / Location</label>
+          <input type="text" id="f_city" placeholder="City, State">
+        </div>
+        <div class="field">
+          <label>Height</label>
+          <input type="text" id="f_height" placeholder="e.g. 162 cm">
+        </div>
+        <div class="field">
+          <label>Weight</label>
+          <input type="text" id="f_weight" placeholder="e.g. 62 kg">
+        </div>
+        <div class="field">
+          <label>Marital Status</label>
+          <select id="f_marital">
+            <option value="">— Select —</option>
+            <option>Single</option>
+            <option>Married</option>
+            <option>Divorced</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Section: Medical History -->
+        <div class="form-divider-label">🏥 Medical Information</div>
+        <hr class="form-divider">
+
+        <div class="field">
+          <label>Diagnosed with PCOS/PCOD before?</label>
+          <select id="f_diagnosed">
+            <option value="">— Select —</option>
+            <option>Yes, diagnosed with PCOS</option>
+            <option>Yes, diagnosed with PCOD</option>
+            <option>No, not diagnosed yet</option>
+            <option>Not sure</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Duration of symptoms</label>
+          <select id="f_duration">
+            <option value="">— Select —</option>
+            <option>Less than 3 months</option>
+            <option>3–6 months</option>
+            <option>6–12 months</option>
+            <option>1–2 years</option>
+            <option>More than 2 years</option>
+          </select>
+        </div>
+        <div class="field form-full">
+          <label>Menstrual Cycle Status</label>
+          <select id="f_cycle">
+            <option value="">— Select —</option>
+            <option>Regular (28–35 days)</option>
+            <option>Irregular (varies a lot)</option>
+            <option>Very infrequent (less than 6 per year)</option>
+            <option>Absent for months</option>
+            <option>Currently on birth control</option>
+          </select>
+        </div>
+        <!-- =======================
