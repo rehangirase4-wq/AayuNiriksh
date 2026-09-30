@@ -1,177 +1,197 @@
 // ==========================================
-// 3D PRINTING MEETS mRNA
-// Professional Website JavaScript
+// OvaSync Health - script.js
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // -----------------------------
-    // Dynamic Copyright Year
-    // -----------------------------
-    const year = document.querySelector("footer p:last-child");
+    // ---------- Sensor Data ----------
+    let healthData = {
+        heartRate: 74,
+        temperature: 36.7,
+        ecg: "Normal",
+        motion: "Stable",
+        latitude: 20.9042,
+        longitude: 74.7749,
+        satellites: 7,
+        drugStatus: "Ready",
+        emergency: false
+    };
 
-    if (year) {
-        year.innerHTML =
-            `© ${new Date().getFullYear()} Educational Scientific Project`;
+    // ---------- Helper ----------
+    function setText(id, value) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.textContent = value;
+        }
     }
 
+    // ---------- Update Dashboard ----------
+    function updateDashboard() {
 
-    // -----------------------------
-    // Smooth Navigation
-    // -----------------------------
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        setText("heartRate", healthData.heartRate + " BPM");
+        setText("temperature", healthData.temperature.toFixed(1) + " °C");
+        setText("ecgStatus", healthData.ecg);
+        setText("motionStatus", healthData.motion);
 
-    navLinks.forEach(link => {
+        setText(
+            "gpsLocation",
+            healthData.latitude.toFixed(6) +
+            ", " +
+            healthData.longitude.toFixed(6)
+        );
 
-        link.addEventListener("click", function(event) {
+        setText("satellites", healthData.satellites);
+        setText("drugStatus", healthData.drugStatus);
 
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
+        const emergencyStatus =
+            document.getElementById("emergencyStatus");
 
-            if (target) {
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
-        });
-
-    });
-
-
-    // -----------------------------
-    // Scroll Reveal Animation
-    // -----------------------------
-    const revealElements = document.querySelectorAll(
-        ".card, .step, .feature-box, .section-title"
-    );
-
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                    observer.unobserve(entry.target);
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
+        if (emergencyStatus) {
+            emergencyStatus.textContent =
+                healthData.emergency
+                    ? "EMERGENCY ACTIVE"
+                    : "SYSTEM NORMAL";
         }
-    );
-
-
-    revealElements.forEach(element => {
-
-        element.classList.add("reveal");
-
-        observer.observe(element);
-
-    });
-
-
-    // -----------------------------
-    // Navbar Shadow on Scroll
-    // -----------------------------
-    const navbar = document.querySelector("nav");
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 30) {
-
-            navbar.style.boxShadow =
-                "0 5px 25px rgba(0,0,0,0.12)";
-
-        } else {
-
-            navbar.style.boxShadow =
-                "0 3px 15px rgba(0,0,0,0.08)";
-
-        }
-
-    });
-
-
-    // -----------------------------
-    // Interactive Technology Cards
-    // -----------------------------
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-
-        card.addEventListener("mouseenter", () => {
-
-            card.style.transform = "translateY(-8px)";
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform = "translateY(0)";
-
-        });
-
-    });
-
-
-    // -----------------------------
-    // 3D DNA Animation
-    // -----------------------------
-    const dna = document.querySelector(".dna");
-
-    if (dna) {
-
-        let rotation = 25;
-
-        function animateDNA() {
-
-            rotation += 0.3;
-
-            dna.style.transform =
-                `rotate(${rotation}deg)`;
-
-            requestAnimationFrame(animateDNA);
-
-        }
-
-        animateDNA();
-
     }
 
+    // ---------- Heart Rate Simulation ----------
+    function simulateHeartRate() {
 
-    // -----------------------------
-    // Hero Button Interaction
-    // -----------------------------
-    const exploreButton =
-        document.querySelector('a[href="#technology"]');
+        // Normal demo range: 70–80 BPM
+        healthData.heartRate =
+            Math.floor(Math.random() * 11) + 70;
 
-    if (exploreButton) {
+        setText(
+            "heartRate",
+            healthData.heartRate + " BPM"
+        );
+    }
 
-        exploreButton.addEventListener("click", () => {
+    // ---------- Temperature Simulation ----------
+    function simulateTemperature() {
 
-            console.log(
-                "Exploring 3D Printing + mRNA Technology"
+        healthData.temperature =
+            36.5 + Math.random() * 0.6;
+
+        setText(
+            "temperature",
+            healthData.temperature.toFixed(1) + " °C"
+        );
+    }
+
+    // ---------- Motion ----------
+    function updateMotion() {
+
+        const motionStates = [
+            "Stable",
+            "Walking",
+            "Moving",
+            "Stable"
+        ];
+
+        healthData.motion =
+            motionStates[
+                Math.floor(Math.random() * motionStates.length)
+            ];
+
+        setText(
+            "motionStatus",
+            healthData.motion
+        );
+    }
+
+    // ---------- GPS ----------
+    function openGPS() {
+
+        const url =
+            "https://www.google.com/maps?q=" +
+            healthData.latitude +
+            "," +
+            healthData.longitude;
+
+        window.open(url, "_blank");
+    }
+
+    // ---------- Emergency Alert ----------
+    function emergencyAlert() {
+
+        healthData.emergency = true;
+
+        setText(
+            "emergencyStatus",
+            "🚨 EMERGENCY ACTIVE"
+        );
+
+        alert(
+            "🚨 Emergency Alert!\n\n" +
+            "OvaSync Health has detected an emergency condition."
+        );
+    }
+
+    // ---------- Reset Emergency ----------
+    function resetEmergency() {
+
+        healthData.emergency = false;
+
+        setText(
+            "emergencyStatus",
+            "SYSTEM NORMAL"
+        );
+    }
+
+    // ---------- Drug Delivery ----------
+    function activateDrugDelivery() {
+
+        healthData.drugStatus = "Delivering...";
+
+        setText(
+            "drugStatus",
+            "💊 Delivering..."
+        );
+
+        setTimeout(() => {
+
+            healthData.drugStatus = "Delivered";
+
+            setText(
+                "drugStatus",
+                "✅ Delivered"
             );
 
-        });
-
+        }, 3000);
     }
 
+    // ---------- ECG ----------
+    function updateECG() {
 
-    // -----------------------------
-    // Scientific Console Message
-    // -----------------------------
-    console.log(
-        "3D Printing Meets mRNA | Advanced Drug Delivery"
-    );
+        const ecgStates = [
+            "Normal",
+            "Normal",
+            "Normal",
+            "Monitoring"
+        ];
 
-});
+        healthData.ecg =
+            ecgStates[
+                Math.floor(Math.random() * ecgStates.length)
+            ];
+
+        setText(
+            "ecgStatus",
+            healthData.ecg
+        );
+    }
+
+    // ---------- Buttons ----------
+    const gpsButton =
+        document.getElementById("gpsButton");
+
+    if (gpsButton) {
+        gpsButton.addEventListener(
+            "click",
+            openGPS
+        );
+    }
+
+    const emergencyButton =
+        document.getElementById("emergencyButton
