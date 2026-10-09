@@ -1,0 +1,97 @@
+.checks{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 18px;
+    margin-top:10px;
+}
+
+.checks label{
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+}
+.severity-rating{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.severity-rating button{
+width:38px;
+height:38px;
+border:1px solid #ddd;
+background:#fff;
+border-radius:8px;
+cursor:pointer;
+}
+
+textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.submit-btn{
+background:linear-gradient(90deg,#d35d92,#7d2c60);
+color:white;
+border:none;
+padding:15px 35px;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+display:block;
+margin:auto;
+}
+.terms-box{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#fafafa;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.agree-checkbox{
+    display:block;
+    margin-top:15px;
+    font-weight:600;
+}
+
+.submit-btn{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#d65b92,#7a1f58);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+.form-submit-row{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+
+.btn-submit{
+background:linear-gradient(135deg,#C2607A,#6B2D4F);
+color:#fff;
+border:none;
+padding:16px 45px;
+border-radius:50px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 30px rgba(194,96,122,.35);
+}
+
+.btn-submit:hover{
+transform:translateY(-2px);
+box-shadow:0 15px 35px rgba(194,96,122,.5);
+}
